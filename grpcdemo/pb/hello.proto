@@ -1,0 +1,23 @@
+syntax = "proto3";  //语法声明
+
+option go_package="./;pb";
+
+package pb; //包名
+
+import "google/api/annotations.proto";
+
+// Greeter 微服务
+service Greeter {
+  rpc SayHello(HelloRequest) returns (HelloResponse){
+    option (google.api.http)={
+      post : "/v1/pb/SayHello"
+      body : "*"
+    };
+  }
+}
+message  HelloRequest{
+  string name=1;
+}
+message  HelloResponse{
+   string message=1;
+}

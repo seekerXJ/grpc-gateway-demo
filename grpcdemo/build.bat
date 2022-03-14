@@ -1,0 +1,1 @@
+protoc -I ./pb/google/api   -I ./pb  --grpc-gateway_out=./pb hello.proto
